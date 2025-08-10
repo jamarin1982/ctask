@@ -1,0 +1,11 @@
+<%= turbo_frame_tag 'categories' do %>
+    <h1><%= t('.title')%> </h1>
+
+    <%= form_with url: tasks_path, method: :get do |form| %>
+        <%= form.text_field :query_text, placeholder: t('.query_text'), onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+    <% end %>
+
+    <%= link_to t('.all'), tasks_path %>
+    <%= render partial: 'category', collection: @categories %>
+    <%= render partial: 'task', collection: @tasks %>
+<% end %>

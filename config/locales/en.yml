@@ -1,0 +1,61 @@
+en:
+  activerecord:
+    models:
+      task: Task
+    attributes:
+      task:
+        title: 'Title'
+        description: 'Description'
+        start_date: 'Start date'
+        end_date: 'End date'
+        photo: 'Photo'
+    errors:
+      models:
+        task:
+          attributes:
+            title:
+              blank: "can't be blank"
+            description: 
+              blank: "can't be blank"
+            start_date: 
+              blank: "can't be blank"
+            end_date:
+              blank: "can't be blank"
+  common:
+    confirm: 'Are you sure?'
+    back: 'Go back'
+  shared:
+    header:
+      add: 'Add task'
+  tasks:
+    edit:
+      title: 'Edit task'
+    new:
+      title: 'Add task'
+    index:
+      title: 'Tasks'
+      query_text: 'What do you want to search?'
+      all: 'All'
+    create:
+      created: 'Task has been successfully created'
+    update:
+      updated: 'Task has been successfully updated'
+    destroy:
+      destroyed: 'Task has been successfully destroyed'
+  categories:
+    category:
+      edit: 'Edit'
+      delete: 'Delete'
+    index:
+      title: 'Categories'
+      new: 'Add category'
+    edit:
+      title: 'Edit category'
+    new:
+      title: 'Add categoría'
+    create:
+      created: 'Category has been successfully created'
+    update:
+      updated: 'Category has been successfully updated'
+    destroy:
+      destroyed: 'Category has been successfully destroyed'

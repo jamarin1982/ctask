@@ -1,0 +1,7 @@
+<%= link_to task_path(task.id), class: 'task', 'data-turbo-frame':'_top' do %>
+    <%= image_tag task.photo, width: 100 if task.photo.attached? %>
+    <h2><%= task.title %></h2>
+    <h3><%= task.description %></h3>
+    <span><%= task.start_date %></span>
+    <span><%= task.end_date %></span>
+<% end %>

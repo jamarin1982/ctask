@@ -1,0 +1,16 @@
+class Task < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_full_text, against: {
+    title: "A",
+    description: "B"
+  }
+
+  has_one_attached :photo
+
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+
+  belongs_to :category
+end
