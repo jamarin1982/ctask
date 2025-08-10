@@ -29,6 +29,12 @@ es:
       add: 'Añadir tareas'
       categories: 'Categorias'
   tasks:
+    task:
+      verify: 'Verificar'
+      develop: 'Desarrollar'
+      reverse: 'Revertir'
+      reject: 'Rechazar'
+      deliver: 'Entregar'
     edit:
       title: 'Editar tarea'
     new:
@@ -37,12 +43,29 @@ es:
       title: 'Tareas'
       query_text: '¿Qué quieres buscar?'
       all: 'Todos'
+      
     create:
       created: 'La tarea se ha creado correctamente'
     update:
       updated: 'La tarea se ha actualizado correctamente'
     destroy:
       destroyed: 'La tarea se ha eliminado correctamente'
+    verify:
+      verified: 'La tarea se ha verificado correctamente'
+    unverify:
+      unverified: 'Ha reversado su estado correctamente'
+    develop:
+      developed: 'La tarea se ha desarrollado correctamente'
+    undevelop:
+      undeveloped: 'Ha reversado su estado correctamente'
+    deliver:
+      delivered: 'La tarea se ha entregado correctamente'
+    undeliver:
+      undelivered: 'Ha reversado su estado correctamente'
+    reject:
+      rejected: 'La tarea se ha rechazado correctamente'
+    unreject:
+      unrejected: 'Ha reversado su estado correctamente'
   categories:
     category:
       edit: 'Editar'

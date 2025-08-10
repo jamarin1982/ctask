@@ -29,6 +29,22 @@ class Task < ApplicationRecord
     event :deliver do
       transitions from: :developed, to: :delivered
     end
+
+    event :unverify do
+      transitions from: :verified, to: :scheduled
+    end
+
+    event :undevelop do
+      transitions from: :developed, to: :verified
+    end
+
+    event :unreject do
+      transitions from: :rejected, to: :verified
+    end
+
+    event :undeliver do
+      transitions from: :delivered, to: :developed
+    end
   end
 
   has_one_attached :photo

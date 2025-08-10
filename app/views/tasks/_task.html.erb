@@ -1,7 +1,28 @@
-<%= link_to task_path(task.id), class: 'task', 'data-turbo-frame':'_top' do %>
+<div class="task">
     <%= image_tag task.photo, width: 100 if task.photo.attached? %>
     <h2><%= task.title %></h2>
     <h3><%= task.description %></h3>
     <span><%= task.start_date %></span>
     <span><%= task.end_date %></span>
-<% end %>
+    
+    <% actions = [
+        { event: :verify,    path: verify_task_path(task),    show: task.scheduled?, label: t('.verify') },
+        { event: :develop,   path: develop_task_path(task),   show: task.verified?,  label: t('.develop') },
+        { event: :reject,    path: reject_task_path(task),    show: task.verified?,  label: t('.reject') },
+        { event: :unverify,  path: unverify_task_path(task),  show: task.verified?,  label: t('.reverse') },
+        { event: :deliver,   path: deliver_task_path(task),   show: task.developed?, label: t('.deliver') },
+        { event: :undevelop, path: undevelop_task_path(task), show: task.developed?, label: t('.reverse') },
+        { event: :unreject,  path: unreject_task_path(task),  show: task.rejected?,  label: t('.reverse') }
+    ] %>
+
+    <% actions.each do |action| %>
+        <% if action[:show] %>
+        <%= link_to action[:label], action[:path], data: {
+            turbo_method: :patch,
+            turbo_confirm: t('common.confirm')
+        } %>
+        <% end %>
+    <% end %>
+    
+    
+    

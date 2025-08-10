@@ -13,5 +13,15 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :categories, except: :show
-  resources :tasks, path: "/"
+  resources :tasks, path: "/" do
+    member do
+      patch :verify
+      patch :develop
+      patch :reject
+      patch :deliver
+      patch :unverify
+      patch :undevelop
+      patch :unreject
+    end
+  end
 end

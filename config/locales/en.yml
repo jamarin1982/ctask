@@ -28,6 +28,12 @@ en:
     header:
       add: 'Add task'
   tasks:
+    task:
+      verify: 'Verify'
+      develop: 'Develop'
+      reverse: 'Reverse'
+      reject: 'Reject'
+      deliver: 'Deliver'
     edit:
       title: 'Edit task'
     new:
@@ -42,6 +48,22 @@ en:
       updated: 'Task has been successfully updated'
     destroy:
       destroyed: 'Task has been successfully destroyed'
+    verify:
+      verified: 'Task has been successfully verified'
+    unverify:
+      unverified: 'Task has been successfully unverified'
+    develop:
+      developed: 'Task has been successfully developed'
+    undevelop:
+      undeveloped: 'Task has been successfully undeveloped'
+    deliver:
+      delivered: 'Task has been successfully delivered'
+    undeliver:
+      undelivered: 'Task has been successfully undelivered'
+    reject:
+      rejected: 'Task has been successfully rejected'
+    unreject:
+      unrejected: 'Task has been successfully unrejected'
   categories:
     category:
       edit: 'Edit'
