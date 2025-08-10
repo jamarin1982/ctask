@@ -65,3 +65,5 @@ end
 gem "tailwindcss-rails", "~> 4.3"
 
 gem "pg_search", "~> 2.3"
+
+gem "aasm"
