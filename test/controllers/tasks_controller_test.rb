@@ -4,7 +4,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     get tasks_path
 
     assert_response :success
-    assert_select ".task", 3
+    assert_select ".task", 9
     assert_select ".category", 3
   end
 
@@ -12,7 +12,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     get tasks_path(category_id: categories(:cat_1))
 
     assert_response :success
-    assert_select ".task", 3
+    assert_select ".task", 9
   end
 
   test "render a detailed task page" do

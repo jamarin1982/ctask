@@ -8,6 +8,13 @@ class TasksController < ApplicationController
         if params[:query_text].present?
             @tasks = @tasks.search_full_text(params[:query_text])
         end
+
+        @pagy, @tasks = pagy(@tasks, limit: 5)
+
+        respond_to do |format|
+            format.html # GET
+            format.turbo_stream # POST
+        end
     end
 
     def show

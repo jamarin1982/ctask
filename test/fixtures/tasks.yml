@@ -6,6 +6,7 @@ task_1:
   start_date: 2025-08-07 00:00:00
   end_date: 2025-08-07 00:00:00
   category: cat_1
+  state: scheduled
 
 task_2:
   title: Tarea 2
@@ -13,6 +14,7 @@ task_2:
   start_date: 2025-08-08 00:00:00
   end_date: 2025-08-08 00:00:00
   category: cat_1
+  state: scheduled
 
 task_3:
   title: Tarea 3
@@ -20,3 +22,52 @@ task_3:
   start_date: 2025-08-09 00:00:00
   end_date: 2025-08-09 00:00:00
   category: cat_1
+  state: scheduled
+
+task_4:
+  title: Tarea 4
+  description: Incluir el eliminar una tarea
+  start_date: 2025-08-09 00:00:00
+  end_date: 2025-08-09 00:00:00
+  category: cat_1
+  state: scheduled
+
+task_5:
+  title: Tarea 5
+  description: Crear la vista de categorias
+  start_date: 2025-08-10 00:00:00
+  end_date: 2025-08-10 00:00:00
+  category: cat_1
+  state: scheduled
+
+task_6:
+  title: Tarea 6
+  description: Crear un form para ingresar las categorias
+  start_date: 2025-08-10 00:00:00
+  end_date: 2025-08-10 00:00:00
+  category: cat_1
+  state: scheduled
+
+task_7:
+  title: Tarea 7
+  description: Incluir las categorias en el index de tareas
+  start_date: 2025-08-10 00:00:00
+  end_date: 2025-08-10 00:00:00
+  category: cat_1
+  state: scheduled
+
+task_8:
+  title: Tarea 8
+  description: Incluir el eliminar en el index de tareas
+  start_date: 2025-08-10 00:00:00
+  end_date: 2025-08-10 00:00:00
+  category: cat_1
+  state: scheduled
+
+task_9:
+  title: Tarea 9
+  description: Agregar paginación al index de tareas
+  start_date: 2025-08-11 00:00:00
+  end_date: 2025-08-11 00:00:00
+  category: cat_1
+  state: scheduled

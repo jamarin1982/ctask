@@ -42,6 +42,7 @@ en:
       title: 'Tasks'
       query_text: 'What do you want to search?'
       all: 'All'
+      load_more: 'Load more'
     create:
       created: 'Task has been successfully created'
     update:

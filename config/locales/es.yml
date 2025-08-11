@@ -43,7 +43,7 @@ es:
       title: 'Tareas'
       query_text: '¿Qué quieres buscar?'
       all: 'Todos'
-      
+      load_more: 'Cargar más'
     create:
       created: 'La tarea se ha creado correctamente'
     update:

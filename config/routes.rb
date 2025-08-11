@@ -23,5 +23,8 @@ Rails.application.routes.draw do
       patch :undevelop
       patch :unreject
     end
+    collection do
+      post :index
+    end
   end
 end
