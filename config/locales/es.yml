@@ -1,4 +1,6 @@
 es:
+  app_name: 'C-Task'
+  meta_title: 'Calendario de Tareas'
   activerecord:
     models:
       task: Tarea

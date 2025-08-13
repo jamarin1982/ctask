@@ -7,23 +7,13 @@
 
     <%= link_to t('.all'), tasks_path %>
     <%= render partial: 'category', collection: @categories %>
+
+
+    <%= turbo_frame_tag "tasks" do %> 
+        <%= render partial: "task", collection: @tasks %>
+    <% end %>
     
-    <%# <%= turbo_frame_tag "tasks-#{@pagy.page}", class:'tasks' do %>
-    <%#     <%= render partial: 'task', collection: @tasks %>
-    <%#     <%= turbo_frame_tag "tasks-#{@pagy.next}", class:'tasks', loading: :lazy, src: pagy_url_for(@pagy, @pagy.next), target: "_top" if @pagy.next do %>
-    <%#        Loading...
-    <%#    <% end %>
-    <%# <% end %>
-    <%# <%= debug @tasks %>
-
-    <div id="tasks">
-        <%= render @tasks %>
-    </div>
-    <div id="next_link">
-        <%= button_to t('.load_more'), 
-            pagy_url_for(@pagy, @pagy.next) if @pagy.next %>
-    </div>
-    <%# <%= render "tasks/next_page" %>
-
+    <%== pagy_nav(@pagy) %>
+    
 
 <% end %>

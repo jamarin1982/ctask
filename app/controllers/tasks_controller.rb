@@ -1,20 +1,10 @@
 class TasksController < ApplicationController
     def index
         @categories = Category.order(name: :asc).load_async
-        @tasks = Task.all.with_attached_photo.order(start_date: :asc).load_async
-        if params[:category_id].present?
-            @tasks = @tasks.where(category_id: params[:category_id])
-        end
-        if params[:query_text].present?
-            @tasks = @tasks.search_full_text(params[:query_text])
-        end
 
-        @pagy, @tasks = pagy(@tasks, limit: 5)
-
-        respond_to do |format|
-            format.html # GET
-            format.turbo_stream # POST
-        end
+        @tasks = FindTasks.new.call(task_params_index).load_async
+        # @pagy, @tasks = Pagy.new(count: @tasks.count, limit: 5), @tasks.limit(5)
+        @pagy, @tasks = pagy_countless(@tasks, items: 5)
     end
 
     def show
@@ -66,6 +56,10 @@ class TasksController < ApplicationController
     private
     def task_params
         params.require(:task).permit(:title, :description, :start_date, :end_date, :photo, :category_id)
+    end
+
+    def task_params_index
+        params.permit(:category_id, :query_text)
     end
 
     def task
