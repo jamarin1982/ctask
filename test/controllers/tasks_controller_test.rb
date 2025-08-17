@@ -1,5 +1,10 @@
 require "test_helper"
 class TasksControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    login
+    @task = tasks(:task_1)
+    @category = categories(:cat_1)
+  end
   test "render a list of tasks" do
     get tasks_path
 
@@ -9,14 +14,14 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "render a list of tasks filtered by category" do
-    get tasks_path(category_id: categories(:cat_1))
+    get tasks_path(category_id: @category)
 
     assert_response :success
     assert_select ".task", 5
   end
 
   test "render a detailed task page" do
-    get task_path(tasks(:task_1))
+    get task_path(@task)
 
     assert_response :success
     assert_select ".title", "Tarea 1"
@@ -39,13 +44,16 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
         description: "Crear formulario para editar una tarea",
         start_date: "2025-08-11 00:00:00 UTC",
         end_date: "2025-08-11 00:00:00 UTC",
-        category_id: categories(:cat_1).id
+        category_id: categories(:cat_1).id,
+        user_id: users(:test).id
       }
     }
 
-    assert_response :success
-    # assert_redirected_to tasks_path
-    # assert_equal flash[:notice], "La tarea se ha creado correctamente"
+    # assert_response :success
+    puts assigns(:task).errors.full_messages
+
+    assert_redirected_to tasks_path
+    assert_equal flash[:notice], "La tarea se ha creado correctamente"
   end
 
   test "does not allow to create a new task with empty fields" do
@@ -60,11 +68,11 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_response :success
+    assert_response :unprocessable_content
   end
 
   test "render an edit task form" do
-    get edit_task_path(tasks(:task_1))
+    get edit_task_path(@task)
 
     assert_response :success
     assert_select "form"
@@ -83,7 +91,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "does not allow to udpate a task with an invalid field" do
-    patch task_path(tasks(:task_1)), params: {
+    patch task_path(@task), params: {
       task: {
         start_date: nil
       }
@@ -94,7 +102,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "can delete tasks" do
     assert_difference("Task.count", -1) do
-      delete task_path(tasks(:task_1))
+      delete task_path(tasks(:task_9))
     end
 
     assert_redirected_to tasks_path

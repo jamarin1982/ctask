@@ -7,6 +7,7 @@ task_1:
   end_date: 2025-08-07 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_2:
   title: Tarea 2
@@ -15,6 +16,7 @@ task_2:
   end_date: 2025-08-08 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_3:
   title: Tarea 3
@@ -23,6 +25,7 @@ task_3:
   end_date: 2025-08-09 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_4:
   title: Tarea 4
@@ -31,6 +34,7 @@ task_4:
   end_date: 2025-08-09 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_5:
   title: Tarea 5
@@ -39,6 +43,7 @@ task_5:
   end_date: 2025-08-10 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_6:
   title: Tarea 6
@@ -47,6 +52,7 @@ task_6:
   end_date: 2025-08-10 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_7:
   title: Tarea 7
@@ -55,6 +61,7 @@ task_7:
   end_date: 2025-08-10 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_8:
   title: Tarea 8
@@ -63,6 +70,7 @@ task_8:
   end_date: 2025-08-10 00:00:00
   category: cat_1
   state: scheduled
+  user: test
 
 task_9:
   title: Tarea 9
@@ -71,3 +79,4 @@ task_9:
   end_date: 2025-08-11 00:00:00
   category: cat_1
   state: scheduled
+  user: test

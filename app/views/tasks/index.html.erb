@@ -7,6 +7,7 @@
 
     <%= link_to t('.all'), tasks_path %>
     <%= render partial: 'category', collection: @categories %>
+    <%= link_to t('.new'), new_task_path, data: { turbo: false } %>
 
 
     <%= turbo_frame_tag "tasks" do %> 

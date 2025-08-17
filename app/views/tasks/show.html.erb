@@ -4,8 +4,8 @@
 <span class="start_date"><%= @task.start_date %></span>
 <span class="end_date"><%= @task.end_date %></span>
 
-<%= link_to 'Editar tarea', edit_task_path(@task) %>
+<%= link_to 'Editar tarea', edit_task_path(@task) if @task.owner? %>
 <%= link_to 'Elimnar tarea', task_path(@task), data: {
     turbo_method: :delete,
     turbo_confirm: t('common.confirm')
-} %>
+}  if @task.owner? %>

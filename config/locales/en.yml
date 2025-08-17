@@ -4,6 +4,8 @@ en:
   activerecord:
     models:
       task: Task
+      user: User
+      category: Category
     attributes:
       task:
         title: 'Title'
@@ -11,24 +13,36 @@ en:
         start_date: 'Start date'
         end_date: 'End date'
         photo: 'Photo'
-    errors:
-      models:
-        task:
-          attributes:
-            title:
-              blank: "can't be blank"
-            description: 
-              blank: "can't be blank"
-            start_date: 
-              blank: "can't be blank"
-            end_date:
-              blank: "can't be blank"
+      user:
+        email: 'Email'
+        username : 'Username'
+        password: 'Password'
+      category:
+        name: 'Name'
   common:
     confirm: 'Are you sure?'
     back: 'Go back'
+    not_logged_in: 'You have to login or create an account'
+    not_authorized: 'You do not have permissions for this action!'
+    edit: 'Edit'
+    destroy: 'Destroy'
   shared:
     header:
-      add: 'Add task'
+      tasks: 'Tasks'
+      categories: 'Categories'
+      login: 'Login'
+      register: 'Register'
+      logout: 'Logout'
+  authentication:
+    users:
+      create:
+        created: 'Your account has been created!'
+    sessions:
+      create:
+        created: 'Welcome!'
+        failed: 'Invalid login!'
+      destroy:
+        destroyed: 'Session ended. Bye!'
   tasks:
     task:
       verify: 'Verify'

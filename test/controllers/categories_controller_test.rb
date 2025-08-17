@@ -1,7 +1,8 @@
 require "test_helper"
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @category = categories(:cat_3)
+    login
+    @category = categories(:cat_1)
   end
 
   test "should get index" do
@@ -34,7 +35,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy category" do
     assert_difference("Category.count", -1) do
-      delete category_url(@category)
+      delete category_url(categories(:cat_3))
     end
 
     assert_redirected_to categories_url

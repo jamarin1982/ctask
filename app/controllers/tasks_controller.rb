@@ -3,7 +3,6 @@ class TasksController < ApplicationController
         @categories = Category.order(name: :asc).load_async
 
         @tasks = FindTasks.new.call(task_params_index).load_async
-        # @pagy, @tasks = Pagy.new(count: @tasks.count, limit: 5), @tasks.limit(5)
         @pagy, @tasks = pagy_countless(@tasks, items: 5)
     end
 
@@ -26,10 +25,11 @@ class TasksController < ApplicationController
     end
 
     def edit
-        task
+        authorize! task
     end
 
     def update
+        authorize! task
         if task.update(task_params)
             redirect_to tasks_path, notice: t(".updated")
         else
@@ -51,19 +51,17 @@ class TasksController < ApplicationController
         end
     end
 
-
-
     private
     def task_params
         params.require(:task).permit(:title, :description, :start_date, :end_date, :photo, :category_id)
     end
 
     def task_params_index
-        params.permit(:category_id, :query_text)
+        params.permit(:category_id, :query_text, :page)
     end
 
     def task
-        @task = Task.find(params[:id])
+        @task ||= Task.find(params[:id])
     end
 
     def run_aasm_event(event)

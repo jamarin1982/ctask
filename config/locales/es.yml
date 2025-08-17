@@ -4,6 +4,8 @@ es:
   activerecord:
     models:
       task: Tarea
+      user: Usuario
+      category: Categoria
     attributes:
       task:
         title: 'Titulo'
@@ -11,37 +13,51 @@ es:
         start_date: 'Fecha inicio'
         end_date: 'Fecha final'
         photo: 'Foto'
-    errors:
-      models:
-        task:
-          attributes:
-            title:
-              blank: 'no puede estar vacío'
-            description: 
-              blank: 'no puede estar vacío'
-            start_date: 
-              blank: 'no puede estar vacío'
-            end_date:
-              blank: 'no puede estar vacío'
+      user:
+        email: 'Correo electrónico'
+        username : 'Usuario'
+        password: 'Contraseña'
+      category:
+        name: 'Nombre'
   common:
     confirm: '¿Estás seguro?'
     back: 'Volver'
+    not_logged_in: 'Tienes que iniciar sesión o crear una cuenta'
+    not_authorized: 'No tienes permisos para esta acción!'
+    edit: 'Editar'
+    destroy: 'Eliminar'
   shared:
     header:
-      add: 'Añadir tareas'
+      tasks: 'Tareas'
       categories: 'Categorias'
+      login: 'Acceso'
+      register: 'Registro'
+      logout: 'Salir'
+  authentication:
+    users:
+      create:
+        created: 'Tu cuenta se ha creado!'
+    sessions:
+      create:
+        created: 'Bienvenido!'
+        failed: '¡Inicio de sesión inválido!'
+      destroy:
+        destroyed: 'Tu sesión ha terminado. Hasta la proxima!'
   tasks:
     task:
+      edit: 'Editar'
+      delete: 'Borrar'
       verify: 'Verificar'
       develop: 'Desarrollar'
       reverse: 'Revertir'
       reject: 'Rechazar'
       deliver: 'Entregar'
-    edit:
+    edit: 
       title: 'Editar tarea'
     new:
       title: 'Agregar tarea'
     index:
+      new: 'Añadir tarea'
       title: 'Tareas'
       query_text: '¿Qué quieres buscar?'
       all: 'Todos'

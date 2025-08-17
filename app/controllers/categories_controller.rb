@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :authorize!
   def index
     @categories = Category.all.order(name: :asc).load_async
   end
@@ -41,6 +42,6 @@ class CategoriesController < ApplicationController
   end
 
   def category
-    @category = Category.find(params[:id])
+    @category ||= Category.find(params[:id])
   end
 end

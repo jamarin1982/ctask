@@ -13,7 +13,7 @@ class FindTasks
   private
 
   def initial_scope
-    Task.with_attached_photo
+    Current.user.tasks.with_attached_photo
   end
 
   def filter_by_category_id(scoped, category_id)

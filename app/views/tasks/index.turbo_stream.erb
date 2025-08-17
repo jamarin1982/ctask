@@ -1,6 +1,0 @@
-<%= turbo_stream.append "tasks" do %>
-    <%= render @tasks %>
-<% end %>
-<%= turbo_stream.update "next_link" do %>
-    <%= button_to t('.load_more'), 
-        pagy_url_for(@pagy, @pagy.next) if @pagy.next %>
