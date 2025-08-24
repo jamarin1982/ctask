@@ -44,7 +44,7 @@ gem "thruster", require: false
 gem "tailwindcss-rails", "~> 4.3"
 gem "pg_search", "~> 2.3"
 gem "aasm"
-gem "pagy", "~> 5.10"
+gem "pagy", "~> 9.4"
 gem "rails-controller-testing"
 gem "heroicon"
 
