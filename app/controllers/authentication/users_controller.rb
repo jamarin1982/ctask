@@ -7,6 +7,8 @@ class Authentication::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      FetchCountryJob.perform_later(@user.id, request.remote_ip)
+      UserMailer.with(user: @user).welcome.deliver_later
       session[:user_id] = @user.id
       redirect_to tasks_path, notice: t(".created")
     else

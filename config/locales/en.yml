@@ -98,3 +98,7 @@ en:
       updated: 'Category has been successfully updated'
     destroy:
       destroyed: 'Category has been successfully destroyed'
+  user_mailer:
+    welcome:
+      welcome_message: 'Hey %{username}, welcome to C-Task!'
+      subject: 'Welcome to C-Task!'

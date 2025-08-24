@@ -9,7 +9,7 @@ class User < ApplicationRecord
       with: /\A[a-zA-Z0-9_]+\z/,
       message: :invalid
     }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, if: :password_digest_changed?
 
   before_save :downcase_attributes
 

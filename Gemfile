@@ -46,6 +46,7 @@ gem "pg_search", "~> 2.3"
 gem "aasm"
 gem "pagy", "~> 5.10"
 gem "rails-controller-testing"
+gem "heroicon"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -62,10 +63,18 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "pry-rails"
+  gem "letter_opener"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webmock"
 end
+
+gem "rails_icons", "~> 1.4"
+
+gem "view_component", "~> 4.0"
+
+gem "sidekiq", "~> 8.0"

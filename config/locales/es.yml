@@ -27,12 +27,12 @@ es:
     edit: 'Editar'
     destroy: 'Eliminar'
   shared:
-    header:
-      tasks: 'Tareas'
-      categories: 'Categorias'
+    menu:
       login: 'Acceso'
       register: 'Registro'
-      logout: 'Salir'
+      tasks: 'Tareas'
+      categories: 'Categorias'
+      logout: 'Cerrar sesión'
   authentication:
     users:
       create:
@@ -101,3 +101,7 @@ es:
       updated: 'La categoria se ha actualizado correctamente'
     destroy:
       destroyed: 'La categoria se ha eliminado correctamente'
+  user_mailer:
+    welcome:
+      welcome_message: 'Hey %{username}, bienvenido a C-Task!'
+      subject: 'Bienvenido a C-Task!'

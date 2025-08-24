@@ -8,3 +8,12 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select
+textarea{
+    background-color: white;
+}

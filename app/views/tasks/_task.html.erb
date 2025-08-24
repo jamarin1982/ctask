@@ -1,10 +1,11 @@
-<div class="task">
-    <%= image_tag task.photo, width: 100 if task.photo.attached? %>
-    <h2><%= task.title %></h2>
-    <h3><%= task.description %></h3>
-    <span><%= task.start_date %></span>
-    <span><%= task.end_date %></span>
-    
+<div class="task bg-white mb-2 py-2 rounded">
+    <%= image_tag task.photo.attached? ? task.photo : "placehold.png", class:"w-full h-48 object-cover" %>
+    <div class="m-2">
+        <h2 class="text-lg font-bold"><%= task.title %></h2>
+        <p class="text-gray-500 text-sm mt-2"><%= task.description %></p>
+        <span class="font-bold text-xl"><%= task.start_date.strftime("%d/%m/%Y") %></span>
+        <span class="font-bold text-xl"><%= task.end_date.strftime("%d/%m/%Y") %></span>
+    </div>
     <% actions = [
         { event: :verify,    path: verify_task_path(task),    show: task.scheduled?, label: t('.verify') },
         { event: :develop,   path: develop_task_path(task),   show: task.verified?,  label: t('.develop') },
@@ -20,15 +21,15 @@
         <%= link_to action[:label], action[:path], data: {
             turbo_method: :patch,
             turbo_confirm: t('common.confirm')
-        } %>
+        }, class: "bg-yellow-500 text-white px-4 py-1 m-2 rounded-2xl drop-shadow-sm hover:bg-gray-300" %>
         <% end %>
     <% end %>
 
-    <%= link_to t('.edit'), edit_task_path(task), data: { turbo: false } %>
+    <%= link_to t('.edit'), edit_task_path(task), data: { turbo: false }, class: "bg-teal-500 text-white px-4 py-1 m-2 rounded-2xl drop-shadow-sm hover:bg-gray-300" %>
     <%= link_to t('.delete'), task_path(task), data: {
         turbo_method: :delete,
         turbo_confirm: t('common.confirm')
-    } %>
+    }, class: "bg-red-500 text-white px-4 py-1 m-2 rounded-2xl drop-shadow-sm hover:bg-gray-300" %>
 </div>
 
     

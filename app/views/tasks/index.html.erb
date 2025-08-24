@@ -1,16 +1,27 @@
 <%= turbo_frame_tag 'home' do %>
-    <h1><%= t('.title')%> </h1>
-
+    <div class="text-2xl text-center font-bold text-teal-500 flex justify-between items-center p-2">
+        <h1><%= t('.title')%> </h1>
+        <div class="bg-orange-500 text-white px-2 py-2 rounded-full drop-shadow-sm hover:bg-gray-300">
+            <%= link_to new_task_path, data: { turbo_visit_control: "reload", turbo_frame: "modal" } do %>
+                <%= icon "plus", variant: "solid" %>
+            <% end %>
+        </div>
+    </div>
+    
     <%= form_with url: tasks_path, method: :get do |form| %>
-        <%= form.text_field :query_text, placeholder: t('.query_text'), onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+        <%= form.text_field :query_text, 
+            placeholder: t('.query_text'), 
+            onChange: 'this.form.requestSubmit()', 
+            value: params[:query_text], 
+            class: "w-full my-2 rounded-xl border-gray-200" %>
     <% end %>
 
-    <%= link_to t('.all'), tasks_path %>
-    <%= render partial: 'category', collection: @categories %>
-    <%= link_to t('.new'), new_task_path, data: { turbo: false } %>
-
-
-    <%= turbo_frame_tag "tasks" do %> 
+    <div class="flex overflow-x-auto gap-2 my-4">
+        <%= render(CategoryComponent.new)%>
+        <%= render(CategoryComponent.with_collection(@categories))%>
+    </div>
+    
+    <%= turbo_frame_tag "tasks", class:"tasks grid grid-flow-row auto-rows-max m-2 py-2" do %> 
         <%= render partial: "task", collection: @tasks %>
     <% end %>
     

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
         @categories = Category.order(name: :asc).load_async
 
         @tasks = FindTasks.new.call(task_params_index).load_async
-        @pagy, @tasks = pagy_countless(@tasks, items: 5)
+        @pagy, @tasks = pagy_countless(@tasks, items: 20)
     end
 
     def show
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
         if @task.save
             redirect_to tasks_path, notice: t(".created")
         else
-            render :new, status: :unprocessable_content
+            render :new, layout: false, status: :unprocessable_content
         end
     end
 
